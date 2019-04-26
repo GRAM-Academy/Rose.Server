@@ -1,0 +1,6 @@
+{
+  "server": {
+    "urlAPI": "http://kaifun-host.mooo.com:7159/",
+    "urlManagement": "http://kaifun-host.mooo.com:7159/management"
+  }
+}

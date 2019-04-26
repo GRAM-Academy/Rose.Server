@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RoseServerConfig>
+  <rose serviceName="ROSE Dev-Test" logFilePath=".\log" logFilePrefix="ROSE_">
+    
+    <engine workerThreadCount="4">
+      <storage type="mysql_async" ipAddress="61.252.141.154" port="3306" userId="root" userPwd="3382" dbName="rose" minDBCCount="2" maxDBCCount="4">
+      </storage>
+      
+      <httpHandlers prefix="http://*:7159/" >
+        <item1 route="/" assembly="Rose.Services.RoseAPI.dll" handler="Rose.Services.RoseAPI" maxDataSize="10485760" />
+      </httpHandlers>
+    </engine>
+    
+    
+    <services>
+      <preprocessor assembly="Rose.Server.exe" handler="Rose.Server.Preprocessor" aesIV="R.O.S.E" aesKey="ServerLab" />
+      <globalObjects>
+        <item1 assembly="Rose.Services.Script.dll" targetObject="Rose.Services.Script.ScriptManager" objectName="ScriptManager">
+          <data entry="./Default.py" />
+        </item1>
+      </globalObjects>
+    </services>
+  </rose>
+</RoseServerConfig>
